@@ -13,12 +13,15 @@ import java.util.Date;
 public class EmployeeServiceImpl implements EmployeeService {
 
     private EmployeeDao employeeDao;
-    private DataSourceTransactionManager transactionManager;
+//    private DataSourceTransactionManager transactionManager;
     public void batchImport() {
-        DefaultTransactionDefinition transactionDefinition = new DefaultTransactionDefinition();
+        /*DefaultTransactionDefinition transactionDefinition = new DefaultTransactionDefinition();
         TransactionStatus status = transactionManager.getTransaction(transactionDefinition);
-        try {
+        try {*/
             for (int i = 0; i < 10; i++) {
+                if (i==3){
+                    throw new RuntimeException("意料之外~~~");
+                }
                 Employee employee = new Employee();
                 employee.setEno(8000 + i);
                 employee.seteName("员工" + i);
@@ -27,12 +30,12 @@ public class EmployeeServiceImpl implements EmployeeService {
                 employee.setHireDate(new Date());
                 employeeDao.insert(employee);
             }
-            transactionManager.commit(status);
+//            transactionManager.commit(status);
             System.out.println("插入成功！");
-        }catch (Exception e){
+        /*}catch (Exception e){
             transactionManager.rollback(status);
             e.printStackTrace();
-        }
+        }*/
     }
 
     public EmployeeDao getEmployeeDao() {
@@ -43,11 +46,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.employeeDao = employeeDao;
     }
 
-    public DataSourceTransactionManager getTransactionManager() {
+    /*public DataSourceTransactionManager getTransactionManager() {
         return transactionManager;
     }
 
     public void setTransactionManager(DataSourceTransactionManager transactionManager) {
         this.transactionManager = transactionManager;
-    }
+    }*/
 }

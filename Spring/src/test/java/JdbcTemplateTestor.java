@@ -2,6 +2,7 @@ import com.imooc.spring.jdbc.dao.EmployeeDao;
 import com.imooc.spring.jdbc.dao.HotelDAO;
 import com.imooc.spring.jdbc.entity.Employee;
 import com.imooc.spring.jdbc.entity.Hotel;
+import com.imooc.spring.jdbc.service.EmployeeService;
 import com.imooc.spring.jdbc.service.impl.EmployeeServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,7 +25,7 @@ public class JdbcTemplateTestor {
     private EmployeeDao employeeDao;
 
     @Resource
-    private EmployeeServiceImpl employeeServiceImpl;
+    private EmployeeService employeeServiceImpl;
 
 
     @Test
