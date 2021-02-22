@@ -1,4 +1,3 @@
-import com.imooc.Spring.jdbc.annotation.dao.HotelDAO;
 import com.imooc.Spring.jdbc.annotation.entity.Hotel;
 import com.imooc.Spring.jdbc.annotation.service.HotelService;
 import org.junit.Test;
