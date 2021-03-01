@@ -10,6 +10,7 @@
     <version>1.0-RELEASE</version>
     <modules>
         <module>Spring-annotation</module>
+        <module>spring-mvc</module>
     </modules>
 
     <repositories>
