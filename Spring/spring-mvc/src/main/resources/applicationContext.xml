@@ -24,6 +24,11 @@
 
     </mvc:annotation-driven>
     <mvc:default-servlet-handler/>
+
+    <!--<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".html"/>
+    </bean>-->
     
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="converters">
@@ -33,24 +38,31 @@
         </property>
     </bean>
 
-    <!-- 启用freemarker模板引擎 -->
+    <!--&lt;!&ndash; 启用freemarker模板引擎 &ndash;&gt;
     <bean id="ViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <!-- 设置字符集，解决响应乱码 -->
+        &lt;!&ndash; 设置字符集，解决响应乱码 &ndash;&gt;
         <property name="contentType" value="text/html;charset=utf-8"/>
-        <!-- 设置公共后缀 -->
+        &lt;!&ndash; 设置公共后缀 &ndash;&gt;
         <property name="suffix" value=".ftl"/>
     </bean>
 
     <bean id="freeMarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <!-- 设置ftl文件默认存储路径 -->
+        &lt;!&ndash; 设置ftl文件默认存储路径 &ndash;&gt;
         <property name="templateLoaderPath" value="/WEB-INF/ftl/"/>
-        <!-- 其他模板引擎设置 -->
+        &lt;!&ndash; 其他模板引擎设置 &ndash;&gt;
         <property name="freemarkerSettings">
             <props>
-                <!-- 设置处理数据时使用的字符集 -->
+                &lt;!&ndash; 设置处理数据时使用的字符集 &ndash;&gt;
                 <prop key="defaultEncoding">UTF-8</prop>
             </props>
         </property>
-    </bean>
+    </bean>-->
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.imooc.springmvc.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

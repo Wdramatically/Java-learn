@@ -35,7 +35,20 @@
             <artifactId>spring-context-support</artifactId>
             <version>5.2.6.RELEASE</version>
         </dependency>
-
+        <!-- 拦截器默认还是使用的javax的servlet，需要导包 -->
+        <!-- provided指明打包时不加入，避免与tomcat中的jar包产生冲突-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- 日志包 -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
     </dependencies>
 
 </project>

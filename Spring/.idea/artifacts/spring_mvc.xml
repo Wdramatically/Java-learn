@@ -2,7 +2,7 @@
   <artifact type="exploded-war" build-on-make="true" name="spring-mvc">
     <output-path>$PROJECT_DIR$/out/artifacts/spring_mvc</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="spring-mvc/web/Web" />
+      <element id="javaee-facet-resources" facet="spring-mvc/web/spring-mvc" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="spring-mvc" />

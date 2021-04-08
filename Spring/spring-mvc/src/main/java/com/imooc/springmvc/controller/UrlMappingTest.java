@@ -2,26 +2,23 @@ package com.imooc.springmvc.controller;
 
 import com.imooc.springmvc.entity.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("map")
 public class UrlMappingTest {
-
-    @GetMapping("/g")
-    @ResponseBody
-    public String getMethod(){
-        return "This is get method";
+    @GetMapping("/login")
+    public String login(){
+        return "login";
     }
-
     @PostMapping("/p")
-    @ResponseBody
-    public String postMethod(User user){
-        System.out.println(user);
-        return  "<fieldset><legend>登陆成功</legend>用户名：" +user.getUsername()+
-                "<br>密码："+user.getPassword()+"</fieldset>";
+    public String postMethod(User user, ModelMap modelMap){
+        if(user.getUsername().equals("admin") && "admin".equals(user.getPassword())){
+            modelMap.addAttribute("user",user);
+        }else {
+            return "redirect:/index.html";
+        }
+        return "main";
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- 线程名 时间 日志级别 包名{长度} 信息 换行-->
+            <pattern>[%thread] %d %level %logger{10} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="debug">
+        <appender-ref ref="console"/>
+    </root>
+
+    <!-- 设置以时间单位生成日志文件 -->
+    <appender name="loginAccessLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 生成文件的路径 -->
+            <fileNamePattern>e:/logs/history-%d.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <!-- 线程名 时间 日志级别 包名{长度} 信息 换行-->
+            <pattern>[%thread] %d %level %logger{10} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="console"/>
+    </root>
+    <logger name="com.imooc.springmvc.interceptor.LoginInterceptor"
+            level="INFO" additivity="false">
+        <appender-ref ref="loginAccessLog"/>
+    </logger>
+
+</configuration>
