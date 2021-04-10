@@ -6,9 +6,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Spring-annotation" />
+        <module name="springboot_learn" />
+        <module name="dpattern" />
         <module name="spring-mvc" />
+        <module name="Spring-annotation" />
+        <module name="springmvc" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring-mvc" target="1.5" />
+      <module name="SpringLearning" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Spring-annotation" options="-parameters" />
+      <module name="dpattern" options="-parameters" />
+      <module name="springboot_learn" options="-parameters" />
+      <module name="springmvc" options="-parameters" />
+    </option>
   </component>
 </project>
