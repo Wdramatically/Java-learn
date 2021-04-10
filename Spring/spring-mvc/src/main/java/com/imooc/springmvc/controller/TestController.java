@@ -37,11 +37,11 @@ public class TestController {
 
     @PostMapping("/bmi/bmi.do")
     public String showBMI(Double height, Double weight, ModelMap modelMap) {
-        String view = "/BMIRes.jsp";
+        String view = "/src/webapp/BMIRes.jsp";
         String bmiAns;
         if (weight == null || height == null){
 
-            return "exception.html";
+            return "/exception.html";
         }
         double bmi = weight / (height * height) * 10000;
         if (bmi < 19){

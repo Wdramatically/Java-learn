@@ -6,8 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springboot_learn" />
-        <module name="dpattern" />
+        <module name="Spring-annotation" />
         <module name="spring-mvc" />
         <module name="Spring-annotation" />
         <module name="springmvc" />
@@ -25,5 +24,8 @@
       <module name="springboot_learn" options="-parameters" />
       <module name="springmvc" options="-parameters" />
     </option>
+    <bytecodeTargetLevel target="1.8">
+      <module name="spring-mvc-2" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
