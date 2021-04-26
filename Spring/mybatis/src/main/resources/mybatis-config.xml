@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 开启驼峰命名 -->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="helperDialect" value="mysql"/>
+            <!--分页合理化，页数<0返回第一页，页数>最大页数 返回最后一页-->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <!-- 采用连接池方式管理数据库连接 -->
+            <dataSource type="com.imooc.mybatis.datasource.C3P0DatasourceFactory">
+                <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/imooc?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai"/>
+                <property name="user" value="root"/>
+                <property name="password" value="12590"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--配置mapper文件路径-->
+    <mappers>
+        <mapper resource="mappers/student.xml"/>
+        <mapper resource="mappers/classes.xml"/>
+        <package name="com.imooc.mybatis.annotation.dao"/>
+    </mappers>
+</configuration>

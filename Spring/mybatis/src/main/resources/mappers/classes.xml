@@ -1,0 +1,21 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="classes">
+    <!--开启二级缓存-->
+    <cache eviction="LRU" flushInterval="6000000" readOnly="true" size="512"/>
+    <!--设置不使用缓存-->
+    <select id="selectClassByNo" resultType="com.imooc.mybatis.entity.Classes" useCache="false">
+        select * from classes where classno = #{classNo}
+    </select>
+
+    <resultMap id="oneToManyClass" type="com.imooc.mybatis.entity.Classes">
+        <id property="id" column="id"/>
+        <collection property="students" column="classno" select="student.selectByClassNo"/>
+    </resultMap>
+    
+    <select id="selectOneToMany" resultMap="oneToManyClass">
+        select * from classes
+    </select>
+</mapper>

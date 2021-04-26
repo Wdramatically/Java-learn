@@ -15,6 +15,7 @@
         <module>dpattern</module>
         <module>lambda</module>
         <module>spring-mvc-2</module>
+        <module>mybatis</module>
     </modules>
 
     <parent>

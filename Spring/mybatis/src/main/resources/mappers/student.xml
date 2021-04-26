@@ -1,0 +1,54 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="student">
+    <resultMap type="com.imooc.mybatis.entity.Student" id="studentMap">
+    </resultMap>
+
+    <select id="selectAll" resultMap="studentMap">
+        select * from student
+    </select>
+    <insert id="insert">
+        insert into student (reg_no, name, sex, age, grade, major) values (
+                                                                              #{regNo}, #{name}, #{sex}, #{age}, #{grade}, #{major}
+                                                                       )
+                                                                       <selectKey resultType="Integer" keyProperty="id" keyColumn="id" order="AFTER">
+                                                                            select last_insert_id()
+                                                                       </selectKey>
+    </insert>
+
+    <select id="selectByClassNo" resultType="com.imooc.mybatis.entity.NewStudent">
+        select * from student where classno = #{classno}
+    </select>
+
+    <resultMap id="students" type="com.imooc.mybatis.entity.NewStudent">
+        <id column="id" property="id"></id>
+        <result property="classNo" column="classno"/>
+        <association property="classes" select="classes.selectClassByNo" column="classno"/>
+    </resultMap>
+    <select id="selectManyToOne" resultMap="students">
+        select * from student where classno = #{classNo};
+    </select>
+
+    <select id="selectPage" resultType="com.imooc.mybatis.entity.NewStudent">
+        select * from student
+    </select>
+
+    <insert id="batchInsert" parameterType="java.util.List">
+        insert into student(stuno, stuname, sex, classno)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.stuNo}, #{item.stuName}, #{item.sex}, #{item.classNo})
+        </foreach>
+    </insert>
+
+    <delete id="batchDelete" parameterType="java.util.List">
+        delete from student where id in 
+        <foreach collection="list" item="item" open="(" close=")" separator="," index="index">
+            #{item}
+        </foreach>
+
+    </delete>
+</mapper>
+
