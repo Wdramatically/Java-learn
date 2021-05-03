@@ -16,6 +16,7 @@
         <module>lambda</module>
         <module>spring-mvc-2</module>
         <module>mybatis</module>
+        <module>imooc-oa</module>
     </modules>
 
     <parent>
