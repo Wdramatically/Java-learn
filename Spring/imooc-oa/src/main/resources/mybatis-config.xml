@@ -14,13 +14,14 @@
             <!-- 采用连接池方式管理数据库连接 -->
             <dataSource type="com.imooc.oa.datasource.DruidDatasourceFactory">
                 <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/imoocoa?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/imooc-oa?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai"/>
                 <property name="username" value="root"/>
-                <property name="password" value="123456"/>
+                <property name="password" value="12590"/>
             </dataSource>
         </environment>
     </environments>
 <mappers>
     <mapper resource="mappers/test.xml"/>
+    <package name="com.imooc.oa.mapper"/>
 </mappers>
 </configuration>
