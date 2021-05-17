@@ -23,5 +23,6 @@
 <mappers>
     <mapper resource="mappers/test.xml"/>
     <package name="com.imooc.oa.mapper"/>
+    <package name="com.imooc.oa.dao"/>
 </mappers>
 </configuration>

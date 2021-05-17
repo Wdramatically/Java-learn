@@ -1,8 +1,13 @@
 package com.imooc.oa.service;
 
 import com.imooc.oa.dao.LoginDao;
+import com.imooc.oa.dao.UserDao;
+import com.imooc.oa.entity.Node;
 import com.imooc.oa.entity.User;
 import com.imooc.oa.service.exception.BusinessException;
+import com.imooc.oa.utils.MybatisUtils;
+
+import java.util.List;
 
 public class UserService {
     private LoginDao loginDao = new LoginDao();
@@ -23,4 +28,12 @@ public class UserService {
         }
         return user;
     }
+
+    public List<Node> selectNodeByUserId(Long userId){
+        return (List<Node>) MybatisUtils.executeQuery(sqlSession -> {
+            UserDao userDao = sqlSession.getMapper(UserDao.class);
+            return userDao.selectNodeByUserId(userId);
+        });
+    }
+
 }

@@ -3,24 +3,24 @@ package com.imooc.oa.entity;
 import java.util.Objects;
 
 public class User {
-    private Integer userId;
+    private Long userId;
 
     private String username;
 
     private String password;
 
-    private Integer employeeId;
+    private Long employeeId;
 
     private Integer salt;
 
     public User() {
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -40,11 +40,11 @@ public class User {
         this.password = password;
     }
 
-    public Integer getEmployeeId() {
+    public Long getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(Integer employeeId) {
+    public void setEmployeeId(Long employeeId) {
         this.employeeId = employeeId;
     }
 
