@@ -15,4 +15,11 @@ public class ExecuteTest {
         String o = (String) MybatisUtils.executeQuery(sqlSession -> sqlSession.selectOne("test.select"));
         System.out.println(o);
     }
+
+    @Test
+    public void testString(){
+        String filename = null;
+        int i = filename.lastIndexOf(".");
+        System.out.println(i);
+    }
 }
